@@ -1,0 +1,9 @@
+<table class="table table-hover">
+  <tr *ngFor="let users of userService.listOfUsers">
+    <td (click)="editUser(users)">[{{users.UserId}}] {{users.UserName}}</td>
+    <td (click)="editUser(users)">{{users.UserDOB}}</td>
+    <td (click)="editUser(users)">{{users.UserDesignation}}</td>
+    <td (click)="editUser(users)">{{users.UserSkills}}</td>
+    <td><button (click)="deleteUser(users.UserId)" class="btn btn-sm btn-outline-danger">Delete</button></td>
+  </tr>
+</table>

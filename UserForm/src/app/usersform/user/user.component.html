@@ -1,0 +1,33 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <input type="hidden" name="UserId" #UserId="ngModel" [(ngModel)]="userService.formData.UserId" />
+  <div class="form-group">
+    <label>Name</label>
+    <input name="UserName" #UserName="ngModel" [(ngModel)]="userService.formData.UserName" class="form-control" required />
+    <div class="validation-error" *ngIf="UserName.invalid && UserName.touched">Please enter user name.</div>
+  </div>
+
+  <div class="form-group">
+    <label>Date of Birth</label>
+    <input type="date" name="UserDOB" #UserDOB="ngModel" [(ngModel)]="userService.formData.UserDOB" class="form-control" required />
+    <div class="validation-error" *ngIf="UserDOB.invalid && UserDOB.touched">Please enterdate of birth.</div>
+  </div>
+
+  <div class="form-group">
+    <label>Designation</label>
+    <input name="UserDesignation" #UserDesignation="ngModel" [(ngModel)]="userService.formData.UserDesignation" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label>Skills</label>
+    <select name="UserSkills" #UserSkills="ngModel" [(ngModel)]="userService.formData.UserSkills" class="form-control">
+      <option value="">Please select a Skills</option>
+      <option value=".Net">.Net</option>
+      <option value="MVC">MVC</option>
+      <option value=".Angular">Angular</option>
+    </select>
+  </div>
+  <br />
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+  </div>
+</form>
